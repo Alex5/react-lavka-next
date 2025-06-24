@@ -15,7 +15,7 @@ type CartProductProps = {
 
 export function CartProduct(props: CartProductProps) {
   const {
-    cartItem: { product, quantity },
+    cartItem: { product },
   } = props;
 
   const { id, longTitle, snippetImage, currentPriceSigned } = product;

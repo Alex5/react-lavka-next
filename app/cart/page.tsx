@@ -1,14 +1,15 @@
-import { useCart } from "@/shared/api/hooks/use-cart/use-cart";
 import { calculateTotal } from "@/shared/services/amount.service";
 import { Div } from "@/shared/ui/div/div";
 import { Text } from "@/shared/ui/text/Text";
 import { ArrowLeft } from "lucide-react";
-import { Link } from "react-router";
+import Link from "next/link";
 import { CartProductCard } from "./components/cart-product-card/cart-product-card";
 import { Button } from "@/shared/ui/button/button";
+import {CartType} from "@/shared/api/hooks/use-cart/use-cart.types";
 
-export function CartPage() {
-  const { cart } = useCart();
+export default function CartPage() {
+  // @todo add server cart
+  const { cart } = {cart: {} as CartType};
 
   const cartItems = Object.values(cart ?? {});
 
@@ -16,7 +17,7 @@ export function CartPage() {
 
   return (
     <Div gap4 flex flexCol style={{ maxWidth: "960px", margin: "0 auto" }}>
-      <Link to="/">
+      <Link href="/">
         <Div flex gap1>
           <ArrowLeft />
           <Text>Вернуться в каталог</Text>
@@ -32,11 +33,11 @@ export function CartPage() {
         <Div flex flexCol style={{ width: "328px" }} gap2>
           <Text>Итого</Text>
           <Text>К оплате: {total}</Text>
-          <a href={import.meta.env.VITE_API_URL + "/api/v1/yandex"}>
+          <Link href={process.env.NEXT_PUBLIC_API_URL + "/api/v1/yandex"}>
             <Button colorPallete="yellow" radius="lg">
               Перейти к оплате
             </Button>
-          </a>
+          </Link>
         </Div>
       </Div>
     </Div>

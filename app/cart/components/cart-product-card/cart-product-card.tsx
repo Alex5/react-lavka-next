@@ -4,7 +4,7 @@ import { Div } from "@/shared/ui/div/div";
 import { Image } from "@/shared/ui/image/image.component";
 import { ProductQuantitySelector } from "@/shared/ui/product-quantity-select/product-quantity-select";
 import { Text } from "@/shared/ui/text/Text";
-import {getImageUrl} from "@/shared/services/dom.service.ts";
+import {getImageUrl} from "@/shared/services/dom.service";
 
 export function CartProductCard({ cartItem }: { cartItem: CartItem }) {
   const { product, quantity } = cartItem;
