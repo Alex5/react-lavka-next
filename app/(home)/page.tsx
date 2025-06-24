@@ -8,8 +8,8 @@ export default async function RootPage() {
     const category = await fetcher<CategoryData>('category');
 
     return (
-        <div className="flex">
-            <div className="flex flex-col gap-2">
+        <div style={{display: "flex"}}>
+            <div style={{display: 'flex', flexDirection: 'column', gap: '20px'}} >
                 {category?.categories?.[0]?.items?.map((categoryItem) => {
                     const products = categoryItem.items?.map((productItem) => ({
                         id: productItem.value.id,
@@ -20,7 +20,7 @@ export default async function RootPage() {
                     }))
 
                     return (
-                        <div key={categoryItem.id} className="flex flex-col gap-2">
+                        <div key={categoryItem.id} style={{display: 'flex', flexDirection: 'column', gap: '20px'}}>
                             <Text fontSize="title4" fontWeight="medium">{categoryItem.value.title}</Text>
                             <ProductList products={products}/>
                         </div>
