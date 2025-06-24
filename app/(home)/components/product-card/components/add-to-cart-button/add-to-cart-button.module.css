@@ -1,0 +1,41 @@
+.container {
+  background-color: white;
+  display: flex;
+  justify-content: flex-end;
+  overflow: hidden;
+  position: relative;
+  width: 48px;
+  border-radius: 48px;
+  transition: width 0.2s ease;
+}
+
+.container.open {
+  width: 140px;
+}
+
+.container::before {
+  border-radius: 48px;
+  background-color: black;
+  border-radius: inherit;
+  bottom: 0;
+  content: "";
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: opacity 0.2s ease-in-out, transform 0.3s ease-in-out; /* можно и transform добавить для красоты */
+  transform: scaleX(0.9); /* немного сжат в начале */
+}
+
+.container.open::before {
+  transform: scaleX(1);
+}
+
+/* Внутренний контейнер */
+.container-inner {
+  height: 48px;
+  position: relative;
+  width: 140px;
+}

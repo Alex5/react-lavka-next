@@ -1,0 +1,10 @@
+.catalog-sidebar {
+  min-width: var(--react-lavka-catalog-wrapper-width);
+}
+
+.catalog-sidebar [data-text-type="title"] {
+  font-family: "Yandex Sans Text";
+  font-weight: 800;
+  font-style: normal;
+  font-size: 21px;
+}

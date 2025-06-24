@@ -1,0 +1,26 @@
+.cart-sidebar {
+    height: calc(100vh - var(--react-lavka-header-height) - var(--react-lavka-margin-header) - 44px);
+    position: sticky;
+    top: 102px;
+    max-width: var(--react-lavka-cart-sidebar-width);
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+    padding: 24px 0 24px 48px;
+    width: 100%;
+}
+
+@media screen and (min-width: 800px) {
+    .cart-sidebar {
+        display: flex;
+    }
+}
+
+.cart-sidebar-list {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    gap: 24px;
+}
