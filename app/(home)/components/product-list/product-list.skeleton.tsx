@@ -1,6 +1,6 @@
-import { Div } from "@shared/ui/div/div";
-import { Grid } from "@shared/ui/grid/grid";
-import { Skeleton } from "@shared/ui/skeleton/skeleton";
+import { Div } from "@/shared/ui/div/div";
+import { Grid } from "@/shared/ui/grid/grid";
+import { Skeleton } from "@/shared/ui/skeleton/skeleton";
 
 export function ProductListSekeltom() {
   return (

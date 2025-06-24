@@ -1,16 +1,17 @@
+"use client"
+
 import styles from "./product-card.module.css";
 
-import {Card} from "@shared/ui/card/card";
-import {Float} from "@shared/ui/float/float";
-import {Image} from "@shared/ui/image/image.component";
-import {Text} from "@shared/ui/text/Text";
+import {Card} from "@/shared/ui/card/card";
+import {Float} from "@/shared/ui/float/float";
+// import {Image} from "@shared/ui/image/image.component";
+import {Text} from "@/shared/ui/text/Text";
 import {AddToCartButton} from "./components/add-to-cart-button/add-to-cart-button";
-import type {ProductType} from "@shared/api/hooks/use-products/use-products.types";
-import {getImageUrl} from "@shared/services/dom.service.ts";
+import type {ProductType} from "@/shared/api/hooks/use-products/use-products.types";
+import {getImageUrl} from "@/shared/services/dom.service";
+import Image from "next/image"
 
 export function ProductCard({product}: { product: ProductType }) {
-
-
     const src = getImageUrl(product.snippetImage?.url ?? "", 600);
 
     return (
@@ -18,14 +19,14 @@ export function ProductCard({product}: { product: ProductType }) {
             <div style={{position: "relative"}}>
                 <div className={styles.image}>
                     <Image
-                        onClick={() => null}
                         src={src}
-                        radius="xl"
+                        className="radius-lg aspect-square"
                         loading="lazy"
-                        aspectRatio="1 / 1"
+                        alt={product.longTitle}
+                        sizes="277px"
+                        fill
                     />
                 </div>
-
                 <Float placement="bottom-end">
                     <AddToCartButton product={product}/>
                 </Float>

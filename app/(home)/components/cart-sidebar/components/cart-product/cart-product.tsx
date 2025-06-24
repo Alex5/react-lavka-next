@@ -1,12 +1,12 @@
-import { Text } from "@shared/ui/text/Text";
-import { Image } from "@shared/ui/image/image.component";
+import { Text } from "@/shared/ui/text/Text";
+import { Image } from "@/shared/ui/image/image.component";
 
-import { useCartActions } from "@shared/api/hooks/use-cart/use-cart-actions";
-import { Div } from "@shared/ui/div/div";
-import { ProductQuantitySelector } from "@shared/ui/product-quantity-select/product-quantity-select";
-import type { CartItem } from "@shared/api/hooks/use-cart/use-cart.types";
+import { useCartActions } from "@/shared/api/hooks/use-cart/use-cart-actions";
+import { Div } from "@/shared/ui/div/div";
+import { ProductQuantitySelector } from "@/shared/ui/product-quantity-select/product-quantity-select";
+import type { CartItem } from "@/shared/api/hooks/use-cart/use-cart.types";
 
-import {getImageUrl} from "@shared/services/dom.service";
+import {getImageUrl} from "@/shared/services/dom.service";
 import Link from "next/link";
 
 type CartProductProps = {

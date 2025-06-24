@@ -1,11 +1,11 @@
-import { useCart } from "@shared/api/hooks/use-cart/use-cart";
-import { calculateTotal } from "@shared/services/amount.service";
-import { Div } from "@shared/ui/div/div";
-import { Text } from "@shared/ui/text/Text";
+import { useCart } from "@/shared/api/hooks/use-cart/use-cart";
+import { calculateTotal } from "@/shared/services/amount.service";
+import { Div } from "@/shared/ui/div/div";
+import { Text } from "@/shared/ui/text/Text";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router";
 import { CartProductCard } from "./components/cart-product-card/cart-product-card";
-import { Button } from "@shared/ui/button/button";
+import { Button } from "@/shared/ui/button/button";
 
 export function CartPage() {
   const { cart } = useCart();

@@ -1,5 +1,5 @@
-import { useCart } from "@shared/api/hooks/use-cart/use-cart";
-import { fetcher } from "@shared/api/fetcher";
+import { useCart } from "@/shared/api/hooks/use-cart/use-cart";
+import { fetcher } from "@/shared/api/fetcher";
 import type { ProductType } from "../use-products/use-products.types";
 import type { CartType } from "./use-cart.types";
 

@@ -1,5 +1,7 @@
+"use client"
+
 import useSWR, { useSWRConfig, type MutatorOptions } from "swr";
-import { fetcher } from "@shared/api/fetcher";
+import { fetcher } from "@/shared/api/fetcher";
 import type { CartType } from "./use-cart.types";
 import { useAuth, type YandexUserInfo } from "../use-auth/use-auth";
 

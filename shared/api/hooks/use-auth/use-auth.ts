@@ -1,4 +1,6 @@
-import { fetcher } from "@shared/api/fetcher";
+"use client"
+
+import { fetcher } from "@/shared/api/fetcher";
 import useSWR from "swr";
 
 export type YandexUserInfo = {

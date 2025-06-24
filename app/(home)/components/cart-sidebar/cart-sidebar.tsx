@@ -1,10 +1,10 @@
-import {Text} from "@shared/ui/text/Text";
+import {Text} from "@/shared/ui/text/Text";
 import styles from "./cart-sidebar.module.css";
-import {useCart} from "@shared/api/hooks/use-cart/use-cart";
+import {useCart} from "@/shared/api/hooks/use-cart/use-cart";
 import {CartProduct} from "./components/cart-product/cart-product";
-import {calculateTotal} from "@shared/services/amount.service";
-import {ButtonLink} from "@shared/ui/button-link/button-link";
-import {Div} from "@shared/ui/div/div";
+import {calculateTotal} from "@/shared/services/amount.service";
+import {ButtonLink} from "@/shared/ui/button-link/button-link";
+import {Div} from "@/shared/ui/div/div";
 
 export function CartSidebar() {
     const {cart} = useCart();

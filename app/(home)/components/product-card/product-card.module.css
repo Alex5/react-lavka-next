@@ -8,6 +8,8 @@
 .image {
   padding-bottom: 100%;
   width: 100%;
+  position: relative;
+  border-radius: var(--react-lavka-radius-xl);
 }
 
 .image img {

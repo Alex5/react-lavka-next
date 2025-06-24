@@ -9,8 +9,8 @@ export const buttonStyles = tv({
   extend: baseVariants,
   variants: {
     icon: {
-      true: styles["icon"],
-      false: null,
+      "true": styles["icon"],
+      "false": null,
     },
   },
   defaultVariants: {
