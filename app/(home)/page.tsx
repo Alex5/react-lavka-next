@@ -1,12 +1,13 @@
 import {Div} from "@shared/ui/div/div";
 import {CartSidebar} from "./components/cart-sidebar/cart-sidebar";
 import {ProductList} from "./components/product-list/product-list";
-import {Text} from "@shared/ui/text/Text.tsx";
-import {useCategory} from "@shared/api/hooks/use-category/use-category.ts";
-import {CatalogSidebar} from "@home/components/catalog-sidebar/catalog-sidebar.tsx";
+import {Text} from "@shared/ui/text/Text";
+import {CatalogSidebar} from "@home/components/catalog-sidebar/catalog-sidebar";
+import type {CategoryData} from "@shared/api/hooks/use-category/use-category.types";
+import {fetcher} from "@shared/api/fetcher";
 
-export function RootPage() {
-    const {category} = useCategory();
+export async function RootPage() {
+    const category = await fetcher<CategoryData>('category');
 
     return (
         <Div flex>

@@ -1,8 +1,8 @@
 import type { VariantProps } from "tailwind-variants";
 import { buttonStyles } from "../button/button.tv";
 import classes from "./button-link.module.css";
-import { Link } from "react-router";
 import type { ComponentProps } from "react";
+import Link from "next/link";
 
 type VartiantTypes = VariantProps<typeof buttonStyles>;
 

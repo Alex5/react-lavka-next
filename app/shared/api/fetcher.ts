@@ -1,9 +1,9 @@
-const API_URL = import.meta.env.VITE_API_URL;
+const API_URL = process.env.API_URL;
 
 if (!API_URL) throw new Error("VITE_API_URL must be provided");
 
-export async function fetcher(input: RequestInfo | URL, init?: RequestInit) {
-    const res = await fetch(`${import.meta.env.DEV ? "" : API_URL}/api/v1/`.concat(input.toString()), init);
+export async function fetcher<Res>(input: RequestInfo | URL, init?: RequestInit) {
+    const res = await fetch(`${API_URL}/api/v1/`.concat(input.toString()), init);
 
-    return await res.json();
+    return await res.json() as Promise<Res>;
 }

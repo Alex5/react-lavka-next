@@ -1,7 +1,7 @@
 import { Div } from "@shared/ui/div/div";
 import styles from "./header.module.css";
 import { Github } from "lucide-react";
-import { repository } from "../../../../../package.json";
+import { repository } from "@/package.json";
 import { useAuth } from "@shared/api/hooks/use-auth/use-auth";
 import { Text } from "@shared/ui/text/Text";
 import { Image } from "@shared/ui/image/image.component";
@@ -33,7 +33,7 @@ export function Header() {
             ) : (
               <ButtonLink
                 radius="md"
-                to={import.meta.env.VITE_API_URL + "/api/v1/yandex?redirect_link=http://localhost:5173/react-lavka/"}
+                to={process.env.API_URL + "/api/v1/yandex?redirect_link=http://localhost:5173/react-lavka/"}
                 target="_self"
               >
                 <Text fontSize="md" fontWeight="medium">

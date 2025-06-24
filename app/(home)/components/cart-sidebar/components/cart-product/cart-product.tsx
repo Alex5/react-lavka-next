@@ -5,8 +5,9 @@ import { useCartActions } from "@shared/api/hooks/use-cart/use-cart-actions";
 import { Div } from "@shared/ui/div/div";
 import { ProductQuantitySelector } from "@shared/ui/product-quantity-select/product-quantity-select";
 import type { CartItem } from "@shared/api/hooks/use-cart/use-cart.types";
-import { Link } from "react-router";
-import {getImageUrl} from "@shared/services/dom.service.ts";
+
+import {getImageUrl} from "@shared/services/dom.service";
+import Link from "next/link";
 
 type CartProductProps = {
   cartItem: CartItem;
@@ -25,7 +26,7 @@ export function CartProduct(props: CartProductProps) {
 
   return (
     <Div flex gap1 itemsCenter width-full>
-      <Link to={`/cart/${id}`} style={{ all: "inherit" }}>
+      <Link href={`/cart/${id}`} style={{ all: "inherit" }}>
         <Image
           src={src}
           radius="md"

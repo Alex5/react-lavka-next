@@ -1,3 +1,5 @@
+"use client"
+
 import React, { createContext, useContext } from "react";
 import { Text } from "../text/Text";
 import { Button } from "../button/button";
