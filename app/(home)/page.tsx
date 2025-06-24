@@ -1,16 +1,14 @@
-// import {CartSidebar} from "./components/cart-sidebar/cart-sidebar";
 import {ProductList} from "./components/product-list/product-list";
-import {Text} from "@/shared/ui/text/Text";
-// import {CatalogSidebar} from "@home/components/catalog-sidebar/catalog-sidebar";
+import {Text} from "@/shared/ui/text/Text";;
 import type {CategoryData} from "@/shared/api/hooks/use-category/use-category.types";
 import {fetcher} from "@/shared/api/fetcher";
+import { CartSidebar } from "./components/cart-sidebar/cart-sidebar";
 
 export default async function RootPage() {
     const category = await fetcher<CategoryData>('category');
 
     return (
         <div className="flex">
-            {/*<CatalogSidebar/>*/}
             <div className="flex flex-col gap-2">
                 {category?.categories?.[0]?.items?.map((categoryItem) => {
                     const products = categoryItem.items?.map((productItem) => ({
@@ -29,7 +27,7 @@ export default async function RootPage() {
                     )
                 })}
             </div>
-            {/*<CartSidebar/>*/}
+            <CartSidebar/>
         </div>
     )
 }

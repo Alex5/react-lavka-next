@@ -1,13 +1,15 @@
 import {Text} from "@/shared/ui/text/Text";
-import styles from "./cart-sidebar.module.css";
-import {useCart} from "@/shared/api/hooks/use-cart/use-cart";
+import styles from "./cart-sidebar.module.css";;
 import {CartProduct} from "./components/cart-product/cart-product";
 import {calculateTotal} from "@/shared/services/amount.service";
 import {ButtonLink} from "@/shared/ui/button-link/button-link";
 import {Div} from "@/shared/ui/div/div";
+import {CartType} from "@/shared/api/hooks/use-cart/use-cart.types";
+import Image from "next/image";
 
 export function CartSidebar() {
-    const {cart} = useCart();
+    // @todo add server cart
+    const {cart} = {cart: {} as CartType};
 
     const cartItems = Object.values(cart ?? {});
 
@@ -38,10 +40,12 @@ export function CartSidebar() {
                         flex: 1
                     }}
                 >
-                    <img
+                    <Image
                         src="https://yastatic.net/s3/lavka-web/public/assets/images/CategoryUnavailable@2x.png"
-                        alt=""
-                        width="100%"
+                        alt="category-unavailable"
+                        sizes="200px"
+                        height={100}
+                        width={290}
                     />
                     <Text>
                         В корзине пока ничего нет. <br/>
@@ -56,7 +60,7 @@ export function CartSidebar() {
                 </ul>
             )}
             <ButtonLink
-                to="/cart"
+                href="/cart"
                 radius="lg"
                 colorPallete={total ? "yellow" : "gray"}
                 disabled={!total}

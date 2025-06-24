@@ -1,13 +1,13 @@
 import { Text } from "@/shared/ui/text/Text";
-import { Image } from "@/shared/ui/image/image.component";
 
-import { useCartActions } from "@/shared/api/hooks/use-cart/use-cart-actions";
+// import { useCartActions } from "@/shared/api/hooks/use-cart/use-cart-actions";
 import { Div } from "@/shared/ui/div/div";
-import { ProductQuantitySelector } from "@/shared/ui/product-quantity-select/product-quantity-select";
+// import { ProductQuantitySelector } from "@/shared/ui/product-quantity-select/product-quantity-select";
 import type { CartItem } from "@/shared/api/hooks/use-cart/use-cart.types";
 
 import {getImageUrl} from "@/shared/services/dom.service";
 import Link from "next/link";
+import Image from "next/image";
 
 type CartProductProps = {
   cartItem: CartItem;
@@ -20,7 +20,8 @@ export function CartProduct(props: CartProductProps) {
 
   const { id, longTitle, snippetImage, currentPriceSigned } = product;
 
-  const { addToCart, removeFromCart } = useCartActions();
+  // @todo add server actions
+  // const { addToCart, removeFromCart } = useCartActions();
 
   const src = getImageUrl(snippetImage.url, 100)
 
@@ -29,9 +30,10 @@ export function CartProduct(props: CartProductProps) {
       <Link href={`/cart/${id}`} style={{ all: "inherit" }}>
         <Image
           src={src}
-          radius="md"
-          aspectRatio="1 / 1"
-          size="md"
+          className="radius-md aspect-square"
+          sizes="60px"
+          alt={props.cartItem.product.longTitle}
+          fill
         />
         <Div flex flexCol width-full style={{ gap: 4 }}>
           <Text fontSize="sm" fontWeight="light" lineClamp2>
@@ -43,15 +45,15 @@ export function CartProduct(props: CartProductProps) {
         </Div>
       </Link>
 
-      <ProductQuantitySelector quantity={quantity}>
-        <ProductQuantitySelector.Decrement
-          onDecrement={() => removeFromCart(product)}
-        />
-        <ProductQuantitySelector.Quantity />
-        <ProductQuantitySelector.Increment
-          onIncrement={() => addToCart(product)}
-        />
-      </ProductQuantitySelector>
+      {/*<ProductQuantitySelector quantity={quantity}>*/}
+      {/*  <ProductQuantitySelector.Decrement*/}
+      {/*    // onDecrement={() => removeFromCart(product)}*/}
+      {/*  />*/}
+      {/*  <ProductQuantitySelector.Quantity />*/}
+      {/*  <ProductQuantitySelector.Increment*/}
+      {/*    // onIncrement={() => addToCart(product)}*/}
+      {/*  />*/}
+      {/*</ProductQuantitySelector>*/}
     </Div>
   );
 }
