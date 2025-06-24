@@ -1,0 +1,239 @@
+.width-full {
+    width: 100%;
+}
+
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.disabled {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.color-pallete-gray {
+    background-color: rgba(101, 92, 78, 0.1);
+    border-color: rgba(101, 92, 78, 0.1);
+    color: rgba(101, 92, 78, 0.1);
+}
+
+.color-pallete-yellow {
+    background-color: var(--react-lavka-color-primary);
+    border-color: var(--react-lavka-color-primary);
+    color: black;
+}
+
+.variant-outline {
+    background-color: transparent;
+}
+
+.size-sm {
+    height: var(--react-lavka-size-sm);
+    min-width: var(--react-lavka-size-sm);
+}
+
+.size-md {
+    height: var(--react-lavka-size-md);
+    min-width: var(--react-lavka-size-md);
+}
+
+.size-lg {
+    height: var(--react-lavka-size-lg);
+    min-width: var(--react-lavka-size-lg);
+}
+
+.size-auto {
+    height: 100%;
+    width: 100%;
+}
+
+.radius-rounded {
+    border-radius: var(--react-lavka-radius-round);
+}
+
+.radius-lg {
+    border-radius: var(--react-lavka-radius-lg);
+}
+
+.radius-md {
+    border-radius: var(--react-lavka-radius-md);
+}
+
+.radius-xl {
+    border-radius: var(--react-lavka-radius-xl);
+}
+
+.shadow-md {
+    box-shadow: var(--react-lavka-shadow-md);
+}
+
+.shadow-none {
+    box-shadow: unset;
+}
+
+.flex {
+    display: flex;
+}
+
+.inline-flex {
+    display: inline-flex;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.flex-row-reverse {
+    flex-direction: row-reverse;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.flex-col-reverse {
+    flex-direction: column-reverse;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.flex-nowrap {
+    flex-wrap: nowrap;
+}
+
+.flex-wrap-reverse {
+    flex-wrap: wrap-reverse;
+}
+
+.justify-start {
+    justify-content: flex-start;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-around {
+    justify-content: space-around;
+}
+
+.justify-evenly {
+    justify-content: space-evenly;
+}
+
+.items-start {
+    align-items: flex-start;
+}
+
+.items-end {
+    align-items: flex-end;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.items-baseline {
+    align-items: baseline;
+}
+
+.items-stretch {
+    align-items: stretch;
+}
+
+.content-start {
+    align-content: flex-start;
+}
+
+.content-end {
+    align-content: flex-end;
+}
+
+.content-center {
+    align-content: center;
+}
+
+.content-between {
+    align-content: space-between;
+}
+
+.content-around {
+    align-content: space-around;
+}
+
+.content-evenly {
+    align-content: space-evenly;
+}
+
+.content-stretch {
+    align-content: stretch;
+}
+
+.self-auto {
+    align-self: auto;
+}
+
+.self-start {
+    align-self: flex-start;
+}
+
+.self-end {
+    align-self: flex-end;
+}
+
+.self-center {
+    align-self: center;
+}
+
+.self-stretch {
+    align-self: stretch;
+}
+
+.self-baseline {
+    align-self: baseline;
+}
+
+.gap-1 {
+    gap: 0.5rem;
+}
+
+.gap-2 {
+    gap: 2rem;
+}
+
+.gap-4 {
+    gap: 4rem;
+}
+
+.gap-6 {
+    gap: 6rem;
+}
+
+.h4 {
+    height: 4rem;
+}
+
+.h6 {
+    height: 6rem;
+}
+
+.h8 {
+    height: 8rem;
+}
+
+.colorMinor {
+    color: var(--react-lavka-theme-text-minor);
+}

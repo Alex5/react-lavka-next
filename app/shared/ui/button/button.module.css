@@ -1,0 +1,22 @@
+.button {
+  display: flex;
+  align-items: center;
+  border: unset;
+  padding: 0 24px;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--theme-text);
+}
+
+.button:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.colorPallete-gray {
+  background-color: rgba(101, 92, 78, 0.1);
+}
+
+.icon {
+  padding: unset;
+}

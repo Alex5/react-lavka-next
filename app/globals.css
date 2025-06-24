@@ -1,26 +1,58 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+    --theme-text: #21201f;
+    --react-lavka-theme-text-minor: #9e9b98;
+    /* Цвета */
+    --react-lavka-color-primary: #fce000;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+    /* Типографика */
+    --react-lavka-font-size-xs: 12px;
+    --react-lavka-font-size-sm: 14px;
+    --react-lavka-font-size-md: 16px;
+    --react-lavka-font-size-lg: 22px;
+    --react-lavka-font-size-xl: 24px;
+    --react-lavka-font-size-title4: 25px;
+    --react-lavka-font-size-caption1: 13px;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+    /* sizes */
+    --react-lavka-size-sm: 38px;
+    --react-lavka-size-md: 48px;
+    --react-lavka-size-lg: 56px;
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    /* Отступы */
+    --react-lavka-spacing-xs: 4px;
+    --react-lavka-spacing-sm: 8px;
+    --react-lavka-spacing-md: 16px;
+    --react-lavka-spacing-lg: 24px;
+    --react-lavka-spacing-xl: 32px;
+
+    /* Радиусы */
+    --react-lavka-radius-sm: 12px;
+    --react-lavka-radius-md: 16px;
+    --react-lavka-radius-lg: 20px;
+    --react-lavka-radius-xl: 24px;
+    --react-lavka-radius-round: 50%;
+
+    /* Тени */
+    --react-lavka-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --react-lavka-shadow-md: 0 2px 5px rgba(0, 0, 0, 0.1);
+    --react-lavka-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.15);
+    --react-lavka-shadow-header: 0 1px 0 rgba(0, 0, 0, 0.05);
+
+    /* z-index */
+    --react-lavka-z-index-dropdown: 1000;
+    --react-lavka-z-index-sticky: 1020;
+    --react-lavka-z-index-modal: 1050;
+    --react-lavka-z-index-toast: 1100;
+
+    /* margins */
+    --react-lavka-margin-header: 20px;
+
+    /* height */
+    --react-lavka-header-height: 80px;
+
+    /* width */
+    --react-lavka-catalog-wrapper-width: 268px;
+    --react-lavka-cart-sidebar-width: 320px;
 }
