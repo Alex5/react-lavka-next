@@ -1,5 +1,5 @@
 .text {
-  font-family: "Yandex Sans Text", sans-serif;
+  font-family: var(--font-yandex-text), sans-serif;
 }
 
 .xs {
