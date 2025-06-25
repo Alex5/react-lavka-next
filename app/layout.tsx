@@ -15,10 +15,10 @@ export default function RootLayout({children}: {children: ReactNode}) {
         <html lang="ru" className={`${yandexSansText.variable} ${yandexSansDisplay.variable}`} suppressHydrationWarning>
             <body>
                 <main>
-                    <Header/>
-                    <Container>
-                        {children}
-                    </Container>
+                        <Header/>
+                        <Container>
+                            {children}
+                        </Container>
                 </main>
             </body>
         </html>
