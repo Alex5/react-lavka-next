@@ -1,5 +1,5 @@
 import {ProductList} from "./components/product-list/product-list";
-import {Text} from "@/shared/ui/text/Text";;
+import {Text} from "@/shared/ui/text/Text";
 import type {CategoryData} from "@/shared/api/hooks/use-category/use-category.types";
 import {fetcher} from "@/shared/api/fetcher";
 import { CartSidebar } from "./components/cart-sidebar/cart-sidebar";

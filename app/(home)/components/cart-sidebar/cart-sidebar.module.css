@@ -3,6 +3,7 @@
     position: sticky;
     top: 102px;
     max-width: var(--react-lavka-cart-sidebar-width);
+    min-width: var(--react-lavka-cart-sidebar-width);
     display: none;
     flex-direction: column;
     gap: 20px;

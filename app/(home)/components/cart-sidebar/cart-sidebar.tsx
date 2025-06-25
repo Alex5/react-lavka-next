@@ -1,22 +1,22 @@
 import {Text} from "@/shared/ui/text/Text";
-import styles from "./cart-sidebar.module.css";;
-import {CartProduct} from "./components/cart-product/cart-product";
+import styles from "./cart-sidebar.module.css";
 import {calculateTotal} from "@/shared/services/amount.service";
 import {ButtonLink} from "@/shared/ui/button-link/button-link";
 import {Div} from "@/shared/ui/div/div";
-import {CartType} from "@/shared/api/hooks/use-cart/use-cart.types";
 import Image from "next/image";
+import {CartProductList} from "@home/components/cart-sidebar/components/cart-product-list/CartProductList";
+import {fetcher} from "@/shared/api/fetcher";
+import {CartType} from "@/shared/api/hooks/use-cart/use-cart.types";
 
-export function CartSidebar() {
-    // @todo add server cart
-    const {cart} = {cart: {} as CartType};
+export async function CartSidebar() {
+    const cart = await fetcher<CartType>("cart");
 
     const cartItems = Object.values(cart ?? {});
 
     const total = calculateTotal(cart);
 
     return (
-        <aside className={styles["cart-sidebar"]}>
+        <aside style={{minWidth: "var(--react-lavka-cart-sidebar-width)"}} className={styles["cart-sidebar"]}>
             <Div flex flexCol gap1>
                 <Text
                     fontSize="title4"
@@ -53,11 +53,7 @@ export function CartSidebar() {
                     </Text>
                 </div>
             ) : (
-                <ul className={styles["cart-sidebar-list"]}>
-                    {cartItems?.map((cartItem) => (
-                        <CartProduct key={cartItem.product.id} cartItem={cartItem}/>
-                    ))}
-                </ul>
+                <CartProductList/>
             )}
             <ButtonLink
                 href="/cart"

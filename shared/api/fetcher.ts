@@ -1,9 +1,11 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
+import {APP_CONFIG} from "@/lavka.config";
 
-if (!API_URL) throw new Error("NEXT_PUBLIC_API_URL must be provided");
+export async function fetcher<Response>(input: RequestInfo | URL, init?: RequestInit) {
+    const res = await fetch(`${APP_CONFIG.API_URL}/api/v1/`.concat(input.toString()), init);
 
-export async function fetcher<Res>(input: RequestInfo | URL, init?: RequestInit) {
-    const res = await fetch(`${API_URL}/api/v1/`.concat(input.toString()), init);
-
-    return await res.json() as Promise<Res>;
+    if (res.ok) {
+        return await res.json() as Promise<Response>;
+    } else {
+        console.error("error response from fetcher: ", res);
+    }
 }

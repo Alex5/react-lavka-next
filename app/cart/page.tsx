@@ -6,6 +6,7 @@ import Link from "next/link";
 import { CartProductCard } from "./components/cart-product-card/cart-product-card";
 import { Button } from "@/shared/ui/button/button";
 import {CartType} from "@/shared/api/hooks/use-cart/use-cart.types";
+import {APP_CONFIG} from "@/lavka.config";
 
 export default function CartPage() {
   // @todo add server cart
@@ -33,7 +34,7 @@ export default function CartPage() {
         <Div flex flexCol style={{ width: "328px" }} gap2>
           <Text>Итого</Text>
           <Text>К оплате: {total}</Text>
-          <Link href={process.env.NEXT_PUBLIC_API_URL + "/api/v1/yandex"}>
+          <Link href={APP_CONFIG.API_URL + "/api/v1/yandex"}>
             <Button colorPallete="yellow" radius="lg">
               Перейти к оплате
             </Button>

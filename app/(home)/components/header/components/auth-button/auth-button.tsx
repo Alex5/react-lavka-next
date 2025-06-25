@@ -5,6 +5,7 @@ import Image from "next/image";
 import {ButtonLink} from "@/shared/ui/button-link/button-link";
 import {Text} from "@/shared/ui/text/Text";
 import {Div} from "@/shared/ui/div/div";
+import {APP_CONFIG} from "@/lavka.config";
 
 export function AuthButton() {
     const { logout, user } = useAuth();
@@ -24,7 +25,7 @@ export function AuthButton() {
             ) : (
                 <ButtonLink
                     radius="md"
-                    href={process.env.API_URL + "/api/v1/yandex?redirect_link=http://localhost:5173/react-lavka/"}
+                    href={APP_CONFIG.API_URL + "/api/v1/yandex"}
                     target="_self"
                 >
                     <Text fontSize="md" fontWeight="medium">
