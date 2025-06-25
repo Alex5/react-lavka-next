@@ -16,7 +16,7 @@ export async function CartSidebar() {
     const total = calculateTotal(cart);
 
     return (
-        <aside style={{maxWidth: "320px", width: '100%'}} className={styles["cart-sidebar"]}>
+        <aside style={{width: "320px"}} className={styles["cart-sidebar"]}>
             <Div flex flexCol gap1>
                 <Text
                     fontSize="title4"
