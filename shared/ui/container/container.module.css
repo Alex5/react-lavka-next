@@ -1,9 +1,6 @@
 .container {
-  max-width: 1400px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 16px;
-  padding-right: 16px;
+  margin-left: 42px;
+  margin-right: 42px;
 }
 
 .container[data-fluid="true"] {

@@ -1,6 +1,5 @@
 .header {
   box-shadow: var(--react-lavka-shadow-header);
-  margin-bottom: var(--react-lavka-margin-header);
   position: sticky;
   top: 0;
   background-color: white;

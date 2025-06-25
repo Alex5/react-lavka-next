@@ -8,9 +8,11 @@ export default async function RootPage() {
     const category = await fetcher<CategoryData>('category');
 
     return (
-        <div style={{display: "flex"}}>
+        <div style={{display: "flex", padding: '20px 0'}}>
             <div style={{display: 'flex', flexDirection: 'column', gap: '20px'}} >
                 {category?.categories?.[0]?.items?.map((categoryItem) => {
+                    if (categoryItem.index === 0) return null;
+
                     const products = categoryItem.items?.map((productItem) => ({
                         id: productItem.value.id,
                         currentPrice: 0,

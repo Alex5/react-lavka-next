@@ -1,3 +1,5 @@
+"use client"
+
 import { useCart } from "@/shared/api/hooks/use-cart/use-cart";
 import { Button } from "@/shared/ui/button/button";
 import { Text } from "@/shared/ui/text/Text";
