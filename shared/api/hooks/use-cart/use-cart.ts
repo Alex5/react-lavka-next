@@ -28,7 +28,7 @@ export function useCart() {
     fetcher,
     options,
   }: {
-    fetcher: () => Promise<CartType> | CartType;
+    fetcher: () => Promise<CartType | undefined>;
     options: MutatorOptions;
   }) => {
     if (user) {

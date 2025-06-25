@@ -12,8 +12,8 @@ export function useCartActions() {
       quantity: (cart?.[product.id]?.quantity ?? 0) + 1,
     };
 
-    function addProduct(product: ProductType): Promise<CartType> {
-      return fetcher("cart", {
+    function addProduct(product: ProductType) {
+      return fetcher<CartType>("cart", {
         method: "POST",
         body: JSON.stringify(product),
         credentials: "include",
@@ -53,8 +53,8 @@ export function useCartActions() {
       }
     }
 
-    function removeProduct(product: ProductType): Promise<CartType> {
-      return fetcher(`cart/${product.id}`, {
+    function removeProduct(product: ProductType) {
+      return fetcher<CartType>(`cart/${product.id}`, {
         method: "DELETE",
         body: JSON.stringify(product),
         credentials: "include",

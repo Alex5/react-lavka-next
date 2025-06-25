@@ -29,7 +29,10 @@ export function useAuth() {
     YandexUserInfo,
     unknown,
     string
-  >("me", (key) => fetcher(key, { credentials: "include" }));
+  >("me");
+
+
+  console.log(rest.error)
 
   async function logout() {
     await mutate(undefined, { revalidate: false });
