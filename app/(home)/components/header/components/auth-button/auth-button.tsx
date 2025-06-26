@@ -3,6 +3,7 @@ import {ButtonLink} from "@/shared/ui/button-link/button-link";
 import {Text} from "@/shared/ui/text/Text";
 import {APP_CONFIG} from "@/lavka.config";
 import {getUser} from "@/lib/api/user";
+import {LogOutButton} from "../logout-button/LogOutButton";
 
 export async function AuthButton() {
     const {user} = await getUser()
@@ -10,15 +11,18 @@ export async function AuthButton() {
     return (
         <div className="flex items-center justify-center relative">
             {user ? (
-                <Image
-                    src={`https://avatars.yandex.net/get-yapic/${user.default_avatar_id}/islands-retina-middle`}
-                    // onClick={logout}
-                    className="object-contain rounded-full cursor-pointer"
-                    sizes="120px"
-                    alt={user.display_name}
-                    height={42}
-                    width={42}
-                />
+                <div className="flex items-center gap-2">
+                    <Image
+                        src={`https://avatars.yandex.net/get-yapic/${user.default_avatar_id}/islands-retina-middle`}
+                        className="object-contain rounded-full cursor-pointer"
+                        sizes="120px"
+                        alt={user.display_name}
+                        height={42}
+                        width={42}
+                    />
+                    <LogOutButton/>
+                </div>
+
             ) : (
                 <ButtonLink
                     radius="md"
