@@ -7,9 +7,12 @@ import Image from "next/image";
 import {CartProductList} from "@home/components/cart-sidebar/components/cart-product-list/CartProductList";
 import {fetcher} from "@/shared/api/fetcher";
 import {CartType} from "@/shared/api/hooks/use-cart/use-cart.types";
+import {headers as nextHeaders} from "next/headers"
 
 export async function CartSidebar() {
-    const cart = await fetcher<CartType>("cart");
+    const headers = await nextHeaders();
+
+    const cart = await fetcher<CartType>("cart", {headers});
 
     const cartItems = Object.values(cart ?? {});
 
@@ -53,7 +56,7 @@ export async function CartSidebar() {
                     </Text>
                 </div>
             ) : (
-                <CartProductList/>
+                <CartProductList initialCart={cart}/>
             )}
             <ButtonLink
                 href="/cart"

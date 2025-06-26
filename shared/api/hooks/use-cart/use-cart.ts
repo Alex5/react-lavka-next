@@ -5,7 +5,9 @@ import { fetcher } from "@/shared/api/fetcher";
 import type { CartType } from "./use-cart.types";
 import { useAuth, type YandexUserInfo } from "../use-auth/use-auth";
 
-export function useCart() {
+export function useCart(args: {fallbackData?: CartType} = {}) {
+  const {fallbackData} = args;
+
   const { user } = useAuth();
 
   const { cache } = useSWRConfig();
@@ -21,7 +23,9 @@ export function useCart() {
       ? fetcher(key, {
           credentials: "include",
         })
-      : Promise.resolve(cache.get("cart")?.data)
+      : Promise.resolve(cache.get("cart")?.data), {
+        fallbackData
+      }
   );
 
   const customMutation = ({
