@@ -1,18 +1,14 @@
-import {YandexUserInfo} from "@/shared/api/hooks/use-auth/use-auth";
 import Image from "next/image";
 import {ButtonLink} from "@/shared/ui/button-link/button-link";
 import {Text} from "@/shared/ui/text/Text";
 import {APP_CONFIG} from "@/lavka.config";
-import {headers as nextHeaders} from "next/headers";
-import {fetcher} from "@/shared/api/fetcher";
+import {getUser} from "@/lib/api/user";
 
 export async function AuthButton() {
-    const headers = await nextHeaders()
-
-    const user = await fetcher<YandexUserInfo>("me", {headers})
+    const {user} = await getUser()
 
     return (
-        <div className="flex items-center justify-center w-12 h-12 relative">
+        <div className="flex items-center justify-center relative">
             {user ? (
                 <Image
                     src={`https://avatars.yandex.net/get-yapic/${user.default_avatar_id}/islands-retina-middle`}
@@ -20,7 +16,8 @@ export async function AuthButton() {
                     className="object-contain rounded-full cursor-pointer"
                     sizes="120px"
                     alt={user.display_name}
-                    fill
+                    height={42}
+                    width={42}
                 />
             ) : (
                 <ButtonLink

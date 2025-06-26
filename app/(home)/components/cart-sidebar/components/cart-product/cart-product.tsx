@@ -1,5 +1,3 @@
-"use client"
-
 import { Text } from "@/shared/ui/text/Text";
 import { Div } from "@/shared/ui/div/div";
 import type { CartItem } from "@/shared/api/hooks/use-cart/use-cart.types";

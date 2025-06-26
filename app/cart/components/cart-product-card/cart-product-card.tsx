@@ -1,7 +1,7 @@
 import { useCartActions } from "@/shared/api/hooks/use-cart/use-cart-actions";
 import type { CartItem } from "@/shared/api/hooks/use-cart/use-cart.types";
 import { Div } from "@/shared/ui/div/div";
-import { Image } from "@/shared/ui/image/image.component";
+import Image from "next/image";
 import { ProductQuantitySelector } from "@/shared/ui/product-quantity-select/product-quantity-select";
 import { Text } from "@/shared/ui/text/Text";
 import {getImageUrl} from "@/shared/services/dom.service";
@@ -17,9 +17,11 @@ export function CartProductCard({ cartItem }: { cartItem: CartItem }) {
     <Div key={product.id} flex gap2>
       <Image
         src={src}
-        aspectRatio="1 / 1"
-        size="lg"
-        radius="lg"
+        className="aspect-square radius-lg"
+        sizes="200px"
+        width={200}
+        height={200}
+        alt={cartItem.product.longTitle}
       />
       <Text fontWeight="normal" fontSize="md" style={{ flex: 1 }}>
         {product.longTitle}

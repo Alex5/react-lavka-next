@@ -5,14 +5,10 @@ import {ButtonLink} from "@/shared/ui/button-link/button-link";
 import {Div} from "@/shared/ui/div/div";
 import Image from "next/image";
 import {CartProductList} from "@home/components/cart-sidebar/components/cart-product-list/CartProductList";
-import {fetcher} from "@/shared/api/fetcher";
-import {CartType} from "@/shared/api/hooks/use-cart/use-cart.types";
-import {headers as nextHeaders} from "next/headers"
+import {getCart} from "@/lib/api/cart";
 
 export async function CartSidebar() {
-    const headers = await nextHeaders();
-
-    const cart = await fetcher<CartType>("cart", {headers});
+    const {cart} = await getCart();
 
     const cartItems = Object.values(cart ?? {});
 
