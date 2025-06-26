@@ -7,5 +7,7 @@ export async function fetcher<Response>(input: RequestInfo | URL, init?: Request
        return await res.json() as Response;
    } catch (e) {
        console.error(e, {res})
+
+       return Promise.reject(res)
    }
 }
