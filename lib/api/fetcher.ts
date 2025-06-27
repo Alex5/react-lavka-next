@@ -10,6 +10,7 @@ export async function fetcher(input: string | URL | Request, init?: RequestInit)
         ...init,
         headers: {
             ...init?.headers,
+            "Content-Type": "application/json",
             ...(sessionCookie ? { cookie: `hono_mock_session=${sessionCookie}` } : {}),
         },
     });

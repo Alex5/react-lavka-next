@@ -7,9 +7,12 @@ import {AddToCartButton} from "./components/add-to-cart-button/add-to-cart-butto
 import type {ProductType} from "@/shared/api/hooks/use-products/use-products.types";
 import {getImageUrl} from "@/shared/services/dom.service";
 import Image from "next/image"
+import {getCart} from "@/lib/api/cart";
 
-export function ProductCard({product}: { product: ProductType }) {
+export async function ProductCard({product}: { product: ProductType }) {
     const src = getImageUrl(product.snippetImage?.url ?? "", 600);
+
+    const {cart} = await getCart();
 
     return (
         <Card className={styles.container}>
@@ -25,7 +28,7 @@ export function ProductCard({product}: { product: ProductType }) {
                     />
                 </div>
                 <Float placement="bottom-end">
-                    <AddToCartButton product={product}/>
+                    <AddToCartButton product={product} cart={cart}/>
                 </Float>
             </div>
             <Text fontSize="md" fontWeight="medium">

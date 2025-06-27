@@ -3,7 +3,7 @@ import "./globals.css"
 import { Container } from "@/shared/ui/container/container";
 import {ReactNode} from "react";
 import {Header} from "@home/components/header/header";
-import {yandexSansText, yandexSansDisplay} from "@/app/fonts";
+import {yandexSansText, yandexSansDisplay} from "@/assets/fonts";
 import {Metadata} from "next";
 
 export const metadata: Metadata = {
