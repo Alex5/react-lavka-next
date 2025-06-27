@@ -1,8 +1,8 @@
 import styles from "./catalog-sidebar.module.css";
-import {useCategory} from "@/shared/api/hooks/use-category/use-category";
+import {getCategory} from "@/lib/api/category";
 
-export function CatalogSidebar() {
-    const {category} = useCategory()
+export async function CatalogSidebar() {
+    const {category} = await getCategory()
 
     return (
         <aside className={styles["catalog-sidebar"]}>

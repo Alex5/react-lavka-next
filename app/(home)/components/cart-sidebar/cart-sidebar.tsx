@@ -52,7 +52,7 @@ export async function CartSidebar() {
                     </Text>
                 </div>
             ) : (
-                <CartProductList initialCart={cart}/>
+                <CartProductList />
             )}
             <ButtonLink
                 href="/cart"

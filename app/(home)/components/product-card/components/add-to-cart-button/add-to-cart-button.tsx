@@ -1,16 +1,13 @@
-"use client"
-
-import { useCart } from "@/shared/api/hooks/use-cart/use-cart";
 import { Button } from "@/shared/ui/button/button";
 import { Text } from "@/shared/ui/text/Text";
-import { useCartActions } from "@/shared/api/hooks/use-cart/use-cart-actions";
 import styles from "./add-to-cart-button.module.css";
 import type { ProductType } from "@/shared/api/hooks/use-products/use-products.types";
+import {getCart} from "@/lib/api/cart";
 
-export function AddToCartButton({ product }: { product: ProductType }) {
-  const { cart } = useCart();
+export async function AddToCartButton({ product }: { product: ProductType }) {
+  const { cart } = await getCart()
 
-  const { addToCart, removeFromCart } = useCartActions();
+  // const { addToCart, removeFromCart } = useCartActions();
 
   const { quantity } = cart?.[product.id] ?? {};
 
@@ -21,7 +18,7 @@ export function AddToCartButton({ product }: { product: ProductType }) {
       <div className={styles["container-inner"]}>
         <div style={{ display: "flex", height: "100%" }}>
           <Button
-            onClick={() => removeFromCart(product)}
+            // onClick={() => removeFromCart(product)}
             radius="xl"
             shadow="none"
             colorPallete="gray"
@@ -50,7 +47,7 @@ export function AddToCartButton({ product }: { product: ProductType }) {
             <Text fontWeight="medium">{quantity ?? 0}</Text>
           </div>
           <Button
-            onClick={() => addToCart(product)}
+            // onClick={() => addToCart(product)}
             icon
             radius="rounded"
             shadow="none"

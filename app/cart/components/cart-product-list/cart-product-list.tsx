@@ -1,16 +1,14 @@
-"use client"
-
 import {CartProductCard} from "@/app/cart/components/cart-product-card/cart-product-card";
-import {useCart} from "@/shared/api/hooks/use-cart/use-cart";
 import {Text} from "@/shared/ui/text/Text";
 import Link from "next/link";
 import {APP_CONFIG} from "@/lavka.config";
 import {Button} from "@/shared/ui/button/button";
 import {Div} from "@/shared/ui/div/div";
 import {calculateTotal} from "@/shared/services/amount.service";
+import {getCart} from "@/lib/api/cart";
 
-export function CartProductList() {
-    const {cart} = useCart();
+export async function CartProductList() {
+    const {cart} = await getCart()
 
     const cartItems = Object.values(cart ?? {});
 

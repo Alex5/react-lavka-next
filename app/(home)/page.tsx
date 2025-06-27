@@ -4,7 +4,7 @@ import { CartSidebar } from "./components/cart-sidebar/cart-sidebar";
 import {getCategory} from "@/lib/api/category";
 
 export default async function RootPage() {
-    const category = await getCategory();
+    const {category} = await getCategory();
 
     return (
         <div style={{display: "flex", padding: '20px 0'}}>

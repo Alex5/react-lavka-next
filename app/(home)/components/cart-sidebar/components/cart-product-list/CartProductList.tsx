@@ -1,12 +1,9 @@
-"use client"
-
 import styles from "@home/components/cart-sidebar/cart-sidebar.module.css";
 import {CartProduct} from "@home/components/cart-sidebar/components/cart-product/cart-product";
-import {useCart} from "@/shared/api/hooks/use-cart/use-cart";
-import {CartType} from "@/shared/api/hooks/use-cart/use-cart.types";
+import {getCart} from "@/lib/api/cart";
 
-export function CartProductList({initialCart}: {initialCart?: CartType}) {
-    const {cart} = useCart({fallbackData: initialCart});
+export async function CartProductList() {
+    const {cart} = await getCart();
 
     const cartItems = Object.values(cart ?? {});
 
