@@ -20,8 +20,8 @@ export function ProductCard({product}: { product: ProductType }) {
                         className="radius-lg aspect-square"
                         alt={product.longTitle}
                         priority={true}
-                        fill
                         style={{objectFit: 'contain'}}
+                        fill
                     />
                 </div>
                 <Float placement="bottom-end">

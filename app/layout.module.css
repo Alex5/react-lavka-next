@@ -1,0 +1,4 @@
+.content {
+    display: grid;
+    grid-template: "menu main cart" auto/minmax(316px, auto) minmax(512px, 672px) minmax(368px, auto);
+}

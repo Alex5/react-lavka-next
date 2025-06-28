@@ -1,6 +1,6 @@
 import "./globals.css"
+import classes from "./layout.module.css";
 
-import { Container } from "@/shared/ui/container/container";
 import {ReactNode} from "react";
 import {Header} from "@home/components/header/header";
 import {yandexSansText, yandexSansDisplay} from "@/assets/fonts";
@@ -18,9 +18,9 @@ export default function RootLayout({children}: {children: ReactNode}) {
             <body>
             <main>
                 <Header/>
-                <Container>
+                <div className={classes.content}>
                     {children}
-                </Container>
+                </div>
             </main>
             </body>
         </Providers>

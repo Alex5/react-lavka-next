@@ -1,5 +1,6 @@
 .catalog-sidebar {
   min-width: var(--react-lavka-catalog-wrapper-width);
+  grid-area: menu;
 }
 
 .catalog-sidebar [data-text-type="title"] {

@@ -3,17 +3,12 @@
     position: sticky;
     top: 102px;
     min-width: var(--react-lavka-cart-sidebar-width);
-    display: none;
+    display: flex;
     flex-direction: column;
     gap: 20px;
     padding: 24px 0 24px 48px;
     width: 100%;
-}
-
-@media screen and (min-width: 800px) {
-    .cart-sidebar {
-        display: flex;
-    }
+    grid-area: cart;
 }
 
 .cart-sidebar-list {

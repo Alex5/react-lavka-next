@@ -3,13 +3,15 @@ import {Text} from "@/shared/ui/text/Text";
 import { CartSidebar } from "./components/cart-sidebar/cart-sidebar";
 import {getCategory} from "@/lib/api/category";
 import {getCart} from "@/lib/api/cart";
+import {CatalogSidebar} from "@home/components/catalog-sidebar/catalog-sidebar";
 
 export default async function RootPage() {
     const [{category}, {cart}] = await Promise.all([getCategory(), getCart()])
 
     return (
-        <div style={{display: "flex", padding: '20px 0'}}>
-            <div style={{display: 'flex', flexDirection: 'column', gap: '20px', width: '100%'}} >
+        <>
+            <CatalogSidebar/>
+            <div style={{display: 'flex', flexDirection: 'column', gap: '20px', width: '100%', gridArea: "main"}} >
                 {category?.categories?.[0]?.items?.map((categoryItem) => {
                     if (categoryItem.index === 0) return null;
 
@@ -33,6 +35,6 @@ export default async function RootPage() {
                 })}
             </div>
             <CartSidebar/>
-        </div>
+        </>
     )
 }
