@@ -2,9 +2,12 @@ import {ProductList} from "./components/product-list/product-list";
 import {Text} from "@/shared/ui/text/Text";
 import { CartSidebar } from "./components/cart-sidebar/cart-sidebar";
 import {getCategory} from "@/lib/api/category";
+import {getCart} from "@/lib/api/cart";
 
 export default async function RootPage() {
     const {category} = await getCategory();
+
+    const {cart} = await getCart()
 
     return (
         <div style={{display: "flex", padding: '20px 0'}}>
@@ -23,7 +26,7 @@ export default async function RootPage() {
                     return (
                         <div key={categoryItem.id} style={{display: 'flex', flexDirection: 'column', gap: '20px'}}>
                             <Text fontSize="title4" fontWeight="medium">{categoryItem.value.title}</Text>
-                            <ProductList products={products}/>
+                            <ProductList products={products} cart={cart}/>
                         </div>
                     )
                 })}

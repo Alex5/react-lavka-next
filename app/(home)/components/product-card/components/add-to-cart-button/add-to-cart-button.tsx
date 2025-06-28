@@ -1,16 +1,17 @@
+"use client"
+
 import { Button } from "@/shared/ui/button/button";
 import { Text } from "@/shared/ui/text/Text";
 import styles from "./add-to-cart-button.module.css";
 import type { ProductType } from "@/shared/api/hooks/use-products/use-products.types";
 import {CartType} from "@/shared/api/hooks/use-cart/use-cart.types";
-import {addProductToCart} from "@/lib/api/cart";
+import {useCartContext} from "@/lib/providers/cart-context-provider";
 
-export function AddToCartButton({ product, cart }: { product: ProductType; cart?: CartType }) {
-    async function addToCard(formData: FormData) {
-        "use server";
-        const obj = Object.fromEntries(formData);
+export function AddToCartButton({ product }: { product: ProductType; cart?: CartType }) {
+    const {cart, addProductToCart} = useCartContext();
 
-        await addProductToCart(product);
+    async function addToCard() {
+
     }
 
   const { quantity } = cart?.[product.id] ?? {};
@@ -22,7 +23,6 @@ export function AddToCartButton({ product, cart }: { product: ProductType; cart?
       <div className={styles["container-inner"]}>
         <div style={{ display: "flex", height: "100%" }}>
             <Button
-                type="submit"
                 radius="xl"
                 shadow="none"
                 colorPallete="gray"
@@ -50,17 +50,14 @@ export function AddToCartButton({ product, cart }: { product: ProductType; cart?
           >
             <Text fontWeight="medium">{quantity ?? 0}</Text>
           </div>
-            <form action={addToCard}>
-                <input name="productId" type="hidden" defaultValue={product.id} hidden/>
-                <button type="submit" className="p-[12px]">
-                    <svg width="24" height="24" viewBox="0 0 24 24">
-                        <path
-                            fill="currentColor"
-                            d="M11.5 3a.5.5 0 00-.5.5V11H3.5a.5.5 0 00-.5.5v1a.5.5 0 00.5.5H11v7.5a.5.5 0 00.5.5h1a.5.5 0 00.5-.5V13h7.5a.5.5 0 00.5-.5v-1a.5.5 0 00-.5-.5H13V3.5a.5.5 0 00-.5-.5h-1z"
-                        />
-                    </svg>
-                </button>
-            </form>
+            <button onClick={() => addProductToCart(product)} className="p-[12px]">
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                    <path
+                        fill="currentColor"
+                        d="M11.5 3a.5.5 0 00-.5.5V11H3.5a.5.5 0 00-.5.5v1a.5.5 0 00.5.5H11v7.5a.5.5 0 00.5.5h1a.5.5 0 00.5-.5V13h7.5a.5.5 0 00.5-.5v-1a.5.5 0 00-.5-.5H13V3.5a.5.5 0 00-.5-.5h-1z"
+                    />
+                </svg>
+            </button>
         </div>
       </div>
     </div>

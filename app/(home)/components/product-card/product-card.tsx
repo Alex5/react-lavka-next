@@ -1,3 +1,5 @@
+"use client"
+
 import styles from "./product-card.module.css";
 
 import {Card} from "@/shared/ui/card/card";
@@ -7,12 +9,12 @@ import {AddToCartButton} from "./components/add-to-cart-button/add-to-cart-butto
 import type {ProductType} from "@/shared/api/hooks/use-products/use-products.types";
 import {getImageUrl} from "@/shared/services/dom.service";
 import Image from "next/image"
-import {getCart} from "@/lib/api/cart";
+import { useCartContext } from "@/lib/providers/cart-context-provider";
 
-export async function ProductCard({product}: { product: ProductType }) {
+export function ProductCard({product}: { product: ProductType }) {
     const src = getImageUrl(product.snippetImage?.url ?? "", 600);
 
-    const {cart} = await getCart();
+    const {cart} = useCartContext()
 
     return (
         <Card className={styles.container}>
@@ -28,7 +30,7 @@ export async function ProductCard({product}: { product: ProductType }) {
                     />
                 </div>
                 <Float placement="bottom-end">
-                    <AddToCartButton product={product} cart={cart}/>
+                        <AddToCartButton product={product} cart={cart}/>
                 </Float>
             </div>
             <Text fontSize="md" fontWeight="medium">
