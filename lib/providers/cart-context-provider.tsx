@@ -1,10 +1,14 @@
-import {createContext, ReactNode, useContext, useState} from "react";
+import {ReactNode, useState} from "react";
 import {CartType} from "@/shared/api/hooks/use-cart/use-cart.types";
 import {ProductType} from "@/shared/api/hooks/use-products/use-products.types";
+import {createContext, useContextSelector} from "use-context-selector";
 
-type CartContextWithSetter = { cart: CartType } & {addProductToCart: (product: ProductType) => void} | null
+type CartContextWithSetter = { cart: CartType; addProductToCart: (product: ProductType) => void}
 
-const CartContext = createContext<CartContextWithSetter>(null);
+const CartContext = createContext<CartContextWithSetter>({
+    cart: {},
+    addProductToCart: () => null
+});
 
 export function CartContextProvider({children, initialCart}: {children: ReactNode; initialCart?: CartType}) {
     const [cart, setter] = useState<CartType>(initialCart ?? {});
@@ -31,9 +35,10 @@ export function CartContextProvider({children, initialCart}: {children: ReactNod
 }
 
 export function useCartContext() {
-    const context = useContext(CartContext);
+    const cart = useContextSelector(CartContext, s => s.cart);
+    const addProductToCart = useContextSelector(CartContext, s => s.addProductToCart);
 
-    if (!context) throw new Error('useAppContext must be used within a ContextProvider');
+    if (!cart) throw new Error('useAppContext must be used within a ContextProvider');
 
-    return context;
+    return {cart, addProductToCart};
 }

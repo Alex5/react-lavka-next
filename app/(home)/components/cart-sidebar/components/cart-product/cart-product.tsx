@@ -5,18 +5,23 @@ import {getImageUrl} from "@/shared/services/dom.service";
 import Link from "next/link";
 import Image from "next/image";
 import {ProductQuantitySelector} from "@/shared/ui/product-quantity-select/product-quantity-select";
-import {useCartContext} from "@/lib/providers/cart-context-provider";
+import {memo, useCallback} from "react";
+import {ProductType} from "@/shared/api/hooks/use-products/use-products.types";
 
 type CartProductProps = {
   cartItem: CartItem;
+  addProductToCart: (product: ProductType) => null
 };
 
-export function CartProduct(props: CartProductProps) {
+export const CartProduct = memo<CartProductProps>((props) => {
   const {
     cartItem: { product, quantity },
+      addProductToCart
   } = props;
 
-  const {addProductToCart} = useCartContext()
+  const callbackAddProductToCart = useCallback(addProductToCart, [addProductToCart])
+
+  // const {addProductToCart} = useCartContext()
 
   const { id, longTitle, snippetImage, currentPriceSigned } = product;
 
@@ -47,9 +52,11 @@ export function CartProduct(props: CartProductProps) {
         <ProductQuantitySelector.Decrement/>
         <ProductQuantitySelector.Quantity />
         <ProductQuantitySelector.Increment
-          onIncrement={() => addProductToCart(product)}
+          onIncrement={() => callbackAddProductToCart(product)}
         />
       </ProductQuantitySelector>
     </div>
   );
-}
+}, (prevProps, newProps) => prevProps.cartItem.quantity !== newProps.cartItem.quantity)
+
+CartProduct.displayName = "CartProduct";

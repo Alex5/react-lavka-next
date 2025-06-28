@@ -4,15 +4,16 @@ import { Button } from "@/shared/ui/button/button";
 import { Text } from "@/shared/ui/text/Text";
 import styles from "./add-to-cart-button.module.css";
 import type { ProductType } from "@/shared/api/hooks/use-products/use-products.types";
-import {CartType} from "@/shared/api/hooks/use-cart/use-cart.types";
 import {useCartContext} from "@/lib/providers/cart-context-provider";
 
-export function AddToCartButton({ product }: { product: ProductType; cart?: CartType }) {
+export function AddToCartButton({ product }: { product: ProductType; }) {
     const {cart, addProductToCart} = useCartContext();
 
   const { quantity } = cart?.[product.id] ?? {};
 
   const isOpen = !!quantity;
+
+  console.log("addProductToCartButton render", product.longTitle);
 
   return (
     <div className={`${styles.container} ${isOpen ? styles.open : ""}`}>
