@@ -42,3 +42,11 @@ export function useCartContext() {
 
     return {cart, addProductToCart};
 }
+
+export function useCartProductQuantity(productId: string) {
+    return useContextSelector(CartContext, s => s.cart[productId]?.quantity ?? 0)
+}
+
+export function useAddProductToCart() {
+    return useContextSelector(CartContext, s => s.addProductToCart);
+}

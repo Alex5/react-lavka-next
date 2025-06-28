@@ -14,9 +14,11 @@
     "next": "15.3.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "scheduler": "^0.26.0",
     "swr": "^2.3.3",
     "tailwind-variants": "^1.0.0",
-    "use-context-selector": "^2.0.0"
+    "use-context-selector": "^2.0.0",
+    "valtio": "^2.1.5"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
