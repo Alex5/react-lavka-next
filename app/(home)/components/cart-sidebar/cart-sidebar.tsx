@@ -6,7 +6,7 @@ import {CheckoutCartButton} from "@home/components/cart-sidebar/components/cart-
 
 export function CartSidebar() {
     return (
-        <aside style={{width: "320px"}} className={styles["cart-sidebar"]}>
+        <aside style={{minWidth: "320px", maxWidth: "320px"}} className={styles["cart-sidebar"]}>
             <Div flex flexCol gap1>
                 <Text
                     fontSize="title4"

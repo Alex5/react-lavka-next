@@ -5,23 +5,24 @@ import {getCategory} from "@/lib/api/category";
 import {getCart} from "@/lib/api/cart";
 
 export default async function RootPage() {
-    const {category} = await getCategory();
-
-    const {cart} = await getCart()
+    const [{category}, {cart}] = await Promise.all([getCategory(), getCart()])
 
     return (
         <div style={{display: "flex", padding: '20px 0'}}>
-            <div style={{display: 'flex', flexDirection: 'column', gap: '20px'}} >
+            <div style={{display: 'flex', flexDirection: 'column', gap: '20px', width: '100%'}} >
                 {category?.categories?.[0]?.items?.map((categoryItem) => {
                     if (categoryItem.index === 0) return null;
 
-                    const products = categoryItem.items?.map((productItem) => ({
-                        id: productItem.value.id,
-                        currentPrice: 0,
-                        longTitle: productItem.value.longTitle,
-                        currentPriceSigned: "",
-                        snippetImage: productItem.value.snippetImage,
-                    }))
+                    const products = categoryItem.items?.map((productItem) => {
+                        return {
+                            id: productItem.value.id,
+                            currentPrice: productItem.value.pricing.price,
+                            longTitle: productItem.value.longTitle,
+                            // @todo fix this
+                            currentPriceSigned: productItem.value.pricing.price + "₽",
+                            snippetImage: productItem.value.snippetImage,
+                        }
+                    })
 
                     return (
                         <div key={categoryItem.id} style={{display: 'flex', flexDirection: 'column', gap: '20px'}}>

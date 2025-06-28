@@ -10,6 +10,7 @@
   width: 100%;
   position: relative;
   border-radius: var(--react-lavka-radius-xl);
+  aspect-ratio: 1 / 1;
 }
 
 .image img {

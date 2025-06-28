@@ -1,5 +1,3 @@
-"use client"
-
 import styles from "./product-card.module.css";
 
 import {Card} from "@/shared/ui/card/card";
@@ -20,14 +18,14 @@ export function ProductCard({product}: { product: ProductType }) {
                     <Image
                         src={src}
                         className="radius-lg aspect-square"
-                        loading="lazy"
+                        // loading="lazy"
                         alt={product.longTitle}
-                        sizes="120px"
                         fill
+                        priority={true}
                     />
                 </div>
                 <Float placement="bottom-end">
-                        <AddToCartButton product={product} />
+                    <AddToCartButton product={product} />
                 </Float>
             </div>
             <Text fontSize="md" fontWeight="medium">
