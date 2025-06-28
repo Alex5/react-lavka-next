@@ -18,10 +18,10 @@ export function ProductCard({product}: { product: ProductType }) {
                     <Image
                         src={src}
                         className="radius-lg aspect-square"
-                        // loading="lazy"
                         alt={product.longTitle}
-                        fill
                         priority={true}
+                        fill
+                        style={{objectFit: 'contain'}}
                     />
                 </div>
                 <Float placement="bottom-end">
