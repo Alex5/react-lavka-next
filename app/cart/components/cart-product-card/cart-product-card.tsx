@@ -5,13 +5,11 @@ import { Div } from "@/shared/ui/div/div";
 import Image from "next/image";
 import { Text } from "@/shared/ui/text/Text";
 import {getImageUrl} from "@/shared/services/dom.service";
-import {useCartContext} from "@/lib/providers/cart-context-provider";
 import {ProductQuantitySelector} from "@/shared/ui/product-quantity-select/product-quantity-select";
+import {addProductToCart} from "@/lib/stores/cart.store";
 
 export function CartProductCard({ cartItem }: { cartItem: CartItem }) {
   const { product, quantity } = cartItem;
-
-  const { addProductToCart } = useCartContext();
 
   const src = getImageUrl(product.snippetImage.url, 100)
 

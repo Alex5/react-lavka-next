@@ -4,16 +4,14 @@ import {Button} from "@/shared/ui/button/button";
 import {Text} from "@/shared/ui/text/Text";
 import styles from "./add-to-cart-button.module.css";
 import type {ProductType} from "@/shared/api/hooks/use-products/use-products.types";
-import {addProductToCart, removeProductToCart, useCart} from "@/lib/stores/cart.store";
+import {addProductToCart, removeProductToCart, useCartStore} from "@/lib/stores/cart.store";
 
 export function AddToCartButton({product}: { product: ProductType; }) {
-    const {cart} = useCart()
+    const {cart} = useCartStore()
 
     const quantity = cart[product.id]?.quantity;
 
     const isOpen = !!quantity;
-
-    console.log("addProductToCartButton render", product.longTitle);
 
     return (
         <div className={`${styles.container} ${isOpen ? styles.open : ""}`}>

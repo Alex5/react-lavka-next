@@ -2,11 +2,11 @@
 
 import {Text} from "@/shared/ui/text/Text";
 import {ButtonLink} from "@/shared/ui/button-link/button-link";
-import {useCartContext} from "@/lib/providers/cart-context-provider";
 import {calculateTotal} from "@/shared/services/amount.service";
+import {useCartStore} from "@/lib/stores/cart.store";
 
 export function CheckoutCartButton() {
-    const {cart} = useCartContext();
+    const {cart} = useCartStore();
 
     const total = calculateTotal(cart);
 

@@ -4,10 +4,10 @@ import styles from "@home/components/cart-sidebar/cart-sidebar.module.css";
 import {CartProduct} from "@home/components/cart-sidebar/components/cart-product/cart-product";
 import Image from "next/image";
 import {Text} from "@/shared/ui/text/Text";
-import {useCartContext} from "@/lib/providers/cart-context-provider";
+import {useCartStore} from "@/lib/stores/cart.store";
 
 export function CartProductList() {
-    const {cart} = useCartContext();
+    const {cart} = useCartStore();
 
     const cartItems = Object.values(cart ?? {});
 

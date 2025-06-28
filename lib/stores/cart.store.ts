@@ -31,6 +31,6 @@ export function removeProductToCart(product: ProductType) {
     }
 }
 
-export function useCart() {
+export function useCartStore() {
     return useSnapshot(cartStore)
 }
