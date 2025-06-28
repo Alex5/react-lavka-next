@@ -1,14 +1,17 @@
+"use client"
+
 import type { CartItem } from "@/shared/api/hooks/use-cart/use-cart.types";
 import { Div } from "@/shared/ui/div/div";
 import Image from "next/image";
-import { ProductQuantitySelector } from "@/shared/ui/product-quantity-select/product-quantity-select";
 import { Text } from "@/shared/ui/text/Text";
 import {getImageUrl} from "@/shared/services/dom.service";
+import {useCartContext} from "@/lib/providers/cart-context-provider";
+import {ProductQuantitySelector} from "@/shared/ui/product-quantity-select/product-quantity-select";
 
 export function CartProductCard({ cartItem }: { cartItem: CartItem }) {
   const { product, quantity } = cartItem;
 
-  // const { addToCart, removeFromCart } = useCartActions();
+  const { addProductToCart } = useCartContext();
 
   const src = getImageUrl(product.snippetImage.url, 100)
 
@@ -25,15 +28,13 @@ export function CartProductCard({ cartItem }: { cartItem: CartItem }) {
       <Text fontWeight="normal" fontSize="md" style={{ flex: 1 }}>
         {product.longTitle}
       </Text>
-      {/*<ProductQuantitySelector quantity={quantity}>*/}
-      {/*  <ProductQuantitySelector.Decrement*/}
-      {/*    onDecrement={() => removeFromCart(product)}*/}
-      {/*  />*/}
-      {/*  <ProductQuantitySelector.Quantity />*/}
-      {/*  <ProductQuantitySelector.Increment*/}
-      {/*    onIncrement={() => addToCart(product)}*/}
-      {/*  />*/}
-      {/*</ProductQuantitySelector>*/}
+      <ProductQuantitySelector quantity={quantity}>
+        <ProductQuantitySelector.Decrement />
+        <ProductQuantitySelector.Quantity />
+        <ProductQuantitySelector.Increment
+          onIncrement={() => addProductToCart(product)}
+        />
+      </ProductQuantitySelector>
     </Div>
   );
 }

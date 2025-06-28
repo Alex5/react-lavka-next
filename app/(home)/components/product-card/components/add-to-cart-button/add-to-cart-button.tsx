@@ -10,10 +10,6 @@ import {useCartContext} from "@/lib/providers/cart-context-provider";
 export function AddToCartButton({ product }: { product: ProductType; cart?: CartType }) {
     const {cart, addProductToCart} = useCartContext();
 
-    async function addToCard() {
-
-    }
-
   const { quantity } = cart?.[product.id] ?? {};
 
   const isOpen = !!quantity;

@@ -1,10 +1,11 @@
 import { Text } from "@/shared/ui/text/Text";
-import { Div } from "@/shared/ui/div/div";
 import type { CartItem } from "@/shared/api/hooks/use-cart/use-cart.types";
 
 import {getImageUrl} from "@/shared/services/dom.service";
 import Link from "next/link";
 import Image from "next/image";
+import {ProductQuantitySelector} from "@/shared/ui/product-quantity-select/product-quantity-select";
+import {useCartContext} from "@/lib/providers/cart-context-provider";
 
 type CartProductProps = {
   cartItem: CartItem;
@@ -12,43 +13,43 @@ type CartProductProps = {
 
 export function CartProduct(props: CartProductProps) {
   const {
-    cartItem: { product },
+    cartItem: { product, quantity },
   } = props;
+
+  const {addProductToCart} = useCartContext()
 
   const { id, longTitle, snippetImage, currentPriceSigned } = product;
 
   const src = getImageUrl(snippetImage.url, 100)
 
   return (
-    <Div flex gap1 itemsCenter width-full>
-      <Link href={`/cart/${id}`} style={{ all: "inherit" }}>
-        <Image
-          src={src}
-          className="radius-md aspect-square"
-          sizes="60px"
-          alt={props.cartItem.product.longTitle}
-          height={60}
-          width={60}
-        />
-        <Div flex flexCol width-full style={{ gap: 4 }}>
+    <div className="flex">
+      <Link href={`/cart/${id}`} className="flex gap-2 flex-1 items-center">
+        <div className="relative bg-neutral-50 rounded-2xl w-full h-12 max-w-12 box-border">
+          <Image
+              src={src}
+              className="radius-md aspect-square"
+              sizes="60px"
+              alt={props.cartItem.product.longTitle}
+              fill
+          />
+        </div>
+        <div className="flex flex-col">
           <Text fontSize="sm" fontWeight="light" lineClamp2>
             {longTitle}
           </Text>
           <Text fontSize="sm" fontWeight="medium">
             {currentPriceSigned}
           </Text>
-        </Div>
+        </div>
       </Link>
-
-      {/*<ProductQuantitySelector quantity={quantity}>*/}
-      {/*  <ProductQuantitySelector.Decrement*/}
-      {/*    onDecrement={() => removeFromCart(product)}*/}
-      {/*  />*/}
-      {/*  <ProductQuantitySelector.Quantity />*/}
-      {/*  <ProductQuantitySelector.Increment*/}
-      {/*    onIncrement={() => addToCart(product)}*/}
-      {/*  />*/}
-      {/*</ProductQuantitySelector>*/}
-    </Div>
+      <ProductQuantitySelector quantity={quantity}>
+        <ProductQuantitySelector.Decrement/>
+        <ProductQuantitySelector.Quantity />
+        <ProductQuantitySelector.Increment
+          onIncrement={() => addProductToCart(product)}
+        />
+      </ProductQuantitySelector>
+    </div>
   );
 }
