@@ -6,7 +6,7 @@ import {getCart} from "@/lib/api/cart";
 import {CatalogSidebar} from "@home/components/catalog-sidebar/catalog-sidebar";
 
 export default async function RootPage() {
-    const [{category}, {cart}] = await Promise.all([getCategory(), getCart()])
+    const [{category}, {cart}] = await Promise.all([getCategory(), getCart()]);
 
     return (
         <>

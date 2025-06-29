@@ -10,6 +10,5 @@ export function ProductList({products}: { products: ProductType[]; cart?: CartTy
                 <ProductCard key={product.id} product={product}/>
             ))}
         </Grid>
-
     );
 }
