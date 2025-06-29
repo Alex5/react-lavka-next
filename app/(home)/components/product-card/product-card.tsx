@@ -19,7 +19,7 @@ export function ProductCard({product}: { product: ProductType }) {
                         src={src}
                         className="radius-lg aspect-square"
                         alt={product.longTitle}
-                        priority={true}
+                        loading="lazy"
                         style={{objectFit: 'contain'}}
                         fill
                     />
