@@ -1,6 +1,6 @@
 {
   "name": "react-lavka-next",
-  "repository": "git+ttps://github.com/Alex5/react-lavka",
+  "repository": "git+https://github.com/Alex5/react-lavka",
   "version": "0.1.0",
   "private": true,
   "scripts": {
