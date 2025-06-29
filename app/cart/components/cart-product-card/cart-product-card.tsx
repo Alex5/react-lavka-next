@@ -11,16 +11,16 @@ import {addProductToCart} from "@/lib/stores/cart.store";
 export function CartProductCard({ cartItem }: { cartItem: CartItem }) {
   const { product, quantity } = cartItem;
 
-  const src = getImageUrl(product.snippetImage.url, 100)
+  const src = getImageUrl(product.snippetImage.url, 300)
 
   return (
     <Div key={product.id} flex gap2>
       <Image
         src={src}
-        className="aspect-square radius-lg"
-        sizes="200px"
-        width={200}
-        height={200}
+        className="aspect-square radius-lg p-2"
+        sizes="120px"
+        width={120}
+        height={120}
         alt={cartItem.product.longTitle}
       />
       <Text fontWeight="normal" fontSize="md" style={{ flex: 1 }}>

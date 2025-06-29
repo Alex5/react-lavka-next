@@ -9,7 +9,7 @@ import {getImageUrl} from "@/shared/services/dom.service";
 import Image from "next/image"
 
 export function ProductCard({product}: { product: ProductType }) {
-    const src = getImageUrl(product.snippetImage?.url ?? "", 600);
+    const src = getImageUrl(product.snippetImage.url, 600);
 
     return (
         <Card className={styles.container}>
@@ -21,7 +21,8 @@ export function ProductCard({product}: { product: ProductType }) {
                         alt={product.longTitle}
                         loading="lazy"
                         style={{objectFit: 'contain'}}
-                        fill
+                        height={165}
+                        width={165}
                     />
                 </div>
                 <Float placement="bottom-end">

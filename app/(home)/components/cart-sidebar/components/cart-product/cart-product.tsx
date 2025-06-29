@@ -16,9 +16,9 @@ export function CartProduct(props: CartProductProps) {
         cartItem: {product, quantity},
     } = props;
 
-    const {id, longTitle, snippetImage, currentPriceSigned} = product;
+    const {id, longTitle, currentPriceSigned} = product;
 
-    const src = getImageUrl(snippetImage.url, 100)
+    const src = getImageUrl(product.snippetImage.url, 300)
 
     return (
         <div className="flex">

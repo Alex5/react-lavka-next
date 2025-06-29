@@ -1,6 +1,5 @@
 "use client"
 
-import {Button} from "@/shared/ui/button/button";
 import {Text} from "@/shared/ui/text/Text";
 import styles from "./add-to-cart-button.module.css";
 import type {ProductType} from "@/shared/api/hooks/use-products/use-products.types";
@@ -16,17 +15,10 @@ export function AddToCartButton({product}: { product: ProductType; }) {
     return (
         <div className={`${styles.container} ${isOpen ? styles.open : ""}`}>
             <div className={styles["container-inner"]}>
-                <div style={{display: "flex", height: "100%"}}>
-                    <Button
+                <div className="flex h-full">
+                    <button
                         onClick={() => removeProductToCart(product)}
-                        radius="xl"
-                        shadow="none"
-                        colorPallete="gray"
-                        style={{
-                            height: "inherit",
-                            padding: "12px",
-                            backgroundColor: "transparent",
-                        }}
+                        className="p-[12px] cursor-pointer"
                     >
                         <svg width="24" height="24" viewBox="0 0 24 24">
                             <path
@@ -34,7 +26,7 @@ export function AddToCartButton({product}: { product: ProductType; }) {
                                 d="M3 12.5a.5.5 0 00.5.5h17a.5.5 0 00.5-.5v-1a.5.5 0 00-.5-.5h-17a.5.5 0 00-.5.5v1z"
                             />
                         </svg>
-                    </Button>
+                    </button>
                     <div
                         style={{
                             height: "100%",
@@ -46,7 +38,7 @@ export function AddToCartButton({product}: { product: ProductType; }) {
                     >
                         <Text fontWeight="medium">{quantity ?? 0}</Text>
                     </div>
-                    <button onClick={() => addProductToCart(product)} className="p-[12px]">
+                    <button onClick={() => addProductToCart(product)} className="p-[12px] cursor-pointer">
                         <svg width="24" height="24" viewBox="0 0 24 24">
                             <path
                                 fill="currentColor"
